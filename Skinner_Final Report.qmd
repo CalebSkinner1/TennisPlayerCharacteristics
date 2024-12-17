@@ -4,7 +4,7 @@ author: Caleb Skinner
 format:
   pdf:
     toc: true
-editor: visual
+editor: source
 ---
 
 ```{r, include = FALSE}
@@ -392,7 +392,7 @@ I chose to normalize each variable, because the variables contain a large discre
 
 After performing the Principle Component Analysis, we can assess the proportion of variance in the original data that each principle component explains. There were 67 variables used in the analysis. If all the original variables were completely orthogonal, then each principle component would explain 1.49% (1/67) of the variance. For this reason, a reasonable cutoff is to include each of the principle components that exceeds this explanatory power.
 
-A total of 15 principle components exceed 1.49% of variance explained. In total, they explain 78.02% of the total variancle. The first principle component explains the most variance by far (25.94%). The top three explain a combined 46.28% of the variance.
+A total of 15 principle components exceed 1.49% of variance explained. In total, they explain 78.02% of the total variance. The first principle component explains the most variance by far (25.94%). The top three explain a combined 46.28% of the variance.
 
 ```{r fig.height = 4, fig.width = 5}
 p1 <- tidy(reduced_pca, matrix = "eigenvalues") %>%
@@ -501,9 +501,9 @@ tidy(reduced_pca, matrix = "loadings") %>%
 
 ### Additional Principle Components
 
-* PC5 - Point Length and Serve Aggressiveness - a high distance run, low first serve percentage, and low second serve aggressiveness contribute to high PC5 values.
-* PC6 - Serve Location - serving close to the lines on the first or second serve leads to positive PC6 values.
-* PC7 - Opponent Serve Location - Opponent Serving close to the lines and double faulting leads to positive PC7 values.
+-   PC5 - Point Length and Serve Aggressiveness - a high distance run, low first serve percentage, and low second serve aggressiveness contribute to high PC5 values.
+-   PC6 - Serve Location - serving close to the lines on the first or second serve leads to positive PC6 values.
+-   PC7 - Opponent Serve Location - Opponent Serving close to the lines and double faulting leads to positive PC7 values.
 
 ## Visualizing Data on Components
 
@@ -570,11 +570,11 @@ I assessed the seven principle components with 8 popular tennis players.
 
 Overall, these players' results fit with our interpretations of the principle components.
 
-* John Isner has a dominant serve but is only a moderately above average player. This fits with the first two principle components. He has a strong serve accuracy (PC6) and tends to try to shorten points (PC5).
+-   John Isner has a dominant serve but is only a moderately above average player. This fits with the first two principle components. He has a strong serve accuracy (PC6) and tends to try to shorten points (PC5).
 
-* Serena Williams has an incredibly strong serve (PC1) and is one of the most dominant tennis players ever (PC2). She is aggressive (PC3) and is an accurate server (PC6).
+-   Serena Williams has an incredibly strong serve (PC1) and is one of the most dominant tennis players ever (PC2). She is aggressive (PC3) and is an accurate server (PC6).
 
-* Rafael Nadal has a mediocre serve (PC1) but is fairly dominant (PC2). He is a very careful player that makes few errors (PC3).
+-   Rafael Nadal has a mediocre serve (PC1) but is fairly dominant (PC2). He is a very careful player that makes few errors (PC3).
 
 ```{r}
 # creating data matrix
@@ -606,7 +606,6 @@ data_matrix <- reduced %>%
   align(align = "center", part = "all")
 ```
 
-
 Overall, these results affirm my interpretations on the first three principle components but cast doubt on the fourth. I would have expected the signs to be flipped.
 
 # Conclusions and Future Work
@@ -621,7 +620,7 @@ The principle components provide measurement tools for other predictive or causa
 
 ## Future Work
 
-This initial analysis grossly reduces the explanation of the players' tendencies. I would suggest a future analysis that analyzes the players on a point level. This would help account for the covariance of many of the variables. 
+This initial analysis grossly reduces the explanation of the players' tendencies. I would suggest a future analysis that analyzes the players on a point level. This would help account for the covariance of many of the variables.
 
 I would also consider standardizing the variables within the pool of mens and womens players separately. Men and women do not compete, so there is justifiable reason to standardize separately. In addition, in my analysis, much of the overall variance is found in the strategic differences between the mens and womens game. If I scale out these differences, then perhaps this will shed light on more nuanced differences in player tendencies.
 
@@ -644,4 +643,3 @@ This report would involve an assessment of player tendencies on a match-level. I
 ```{r ref.label = knitr::all_labels(), echo = TRUE, eval = FALSE}
 
 ```
-
